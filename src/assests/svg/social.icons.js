@@ -30,3 +30,67 @@ export const Twitter = () => (
     <path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path>
   </svg>
 );
+
+export const Rocket = () => (
+  <svg class="loading" viewBox="0 0 84.6 84.6">
+    <defs>
+      <filter id="stickyFilter">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur" />
+        <feColorMatrix
+          in="blur"
+          mode="matrix"
+          values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
+          result="filter"
+        />
+        <feComposite in="SourceGraphic" in2="filter" operator="atop" />
+      </filter>
+      <linearGradient
+        id="gradient"
+        class="gradient"
+        x1="0%"
+        y1="0%"
+        x2="0%"
+        y2="40%"
+        gradientTransform="rotate(45)"
+      >
+        <stop offset="0%" />
+        <stop offset="100%" />
+      </linearGradient>
+    </defs>
+    <clipPath id="clip">
+      <circle cx="42.3" cy="42.3" r="41.6" />
+    </clipPath>
+    <g clip-path="url(#clip)">
+      <path class="background" d="M0 0h84.6v84.6H0z" />
+      <g class="exhaust">
+        <path
+          class="gradientBox"
+          d="M2.37244 65.5981l28.84968-28.84968 16.54614 16.54614-28.84968 28.84968z"
+        />
+        <path
+          class="gradientBox"
+          d="M6.35189 69.55189l28.84968-28.84968 8.34378 8.34378-28.84968 28.84968z"
+        />
+        <g class="filteredGroup">
+          <path class="line1 line lineThick" d="M47.7 49.6L13.4 83.9" />
+          <path class="line2 line lineThick" d="M42.3 42.3L8 76.6" />
+          <path class="line3 line lineThick" d="M33.5 38.5L-.8 72.8" />
+
+          <path class="line4 line lineDots" d="M45 45.82L10.7 80.12" />
+          <path class="line5 line lineDots" d="M38.16 40.06L3.86 74.36" />
+
+          <path class="line6 line lineStatic" d="M39.46 41.15L18.91 61.7" />
+          <path class="line7 line lineStatic" d="M43.57 43.77L23.02 64.32" />
+        </g>
+      </g>
+      <g class="rotate">
+        <g class="rumble">
+          <path
+            class="arrow"
+            d="M60.8 27.2c.6-2.1-1.3-4-3.4-3.4L19.5 35.3c-2.2.7-2.6 3.6-.8 4.9l15.8 7.6c1.1.5 2 1.4 2.5 2.6L44.4 66c1.3 1.9 4.2 1.4 4.9-.8l11.5-38z"
+          />
+        </g>
+      </g>
+    </g>
+  </svg>
+);

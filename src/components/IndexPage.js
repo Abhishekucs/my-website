@@ -9,7 +9,7 @@ const IndexPage = () => {
   const handleLoader = () => {
     setTimeout(() => {
       setVisible(!visible);
-    }, 2000);
+    }, 4500);
   };
 
   useEffect(handleLoader, []);
