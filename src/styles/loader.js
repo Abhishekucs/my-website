@@ -59,7 +59,7 @@ export const Animation = styled.div`
     max-width: 70px;
     width: 100%;
     .background {
-      fill: #102555;
+      fill: #fe5d26;
     }
     .rotate {
       animation: ${rotate3d} 4s 1;

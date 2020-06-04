@@ -36,6 +36,8 @@ const Contact = ({ onCursor }) => {
                 onMouseEnter={() => onCursor("pointer")}
                 onMouseLeave={onCursor}
                 href="https://www.facebook.com/abhishekucs/"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 Facebook
               </a>
@@ -48,6 +50,8 @@ const Contact = ({ onCursor }) => {
                 onMouseEnter={() => onCursor("pointer")}
                 onMouseLeave={onCursor}
                 href="https://www.instagram.com/abhishek00308/"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 Instagram
               </a>
@@ -60,6 +64,8 @@ const Contact = ({ onCursor }) => {
                 onMouseEnter={() => onCursor("pointer")}
                 onMouseLeave={onCursor}
                 href="https://github.com/Abhishekucs"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 Github
               </a>
@@ -72,6 +78,8 @@ const Contact = ({ onCursor }) => {
                 onMouseEnter={() => onCursor("pointer")}
                 onMouseLeave={onCursor}
                 href="https://twitter.com/mabhi1999"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 Twitter
               </a>
@@ -81,7 +89,11 @@ const Contact = ({ onCursor }) => {
             onMouseEnter={() => onCursor("pointer")}
             onMouseLeave={onCursor}
           >
-            <a href="https://mail.google.com/mail/u/0/#inbox?compose=new">
+            <a
+              href="mailto:abhishekucskumar@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Get in touch
             </a>
           </Button>

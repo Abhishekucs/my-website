@@ -284,7 +284,7 @@ export const CodeLine = styled.div`
     `}
   
   ${(props) =>
-    props.cursor &&
+    props.point &&
     css`
       &:after {
         content: "";

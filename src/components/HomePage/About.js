@@ -221,7 +221,7 @@ const About = ({ onCursor }) => {
             </Line>
             <Line>
               <span className="number">27</span>
-              <CodeLine cursor>
+              <CodeLine point>
                 <span id="cursor"></span>
               </CodeLine>
             </Line>
