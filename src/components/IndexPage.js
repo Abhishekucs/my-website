@@ -1,12 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { GlobalProvider } from "../context/globalContext";
 import Home from "./Home";
+import Loader from "./Loader";
 
 const IndexPage = () => {
+  const [visible, setVisible] = useState(true);
+
+  const handleLoader = () => {
+    setTimeout(() => {
+      setVisible(!visible);
+    }, 2000);
+  };
+
+  useEffect(handleLoader, []);
   return (
-    <GlobalProvider>
-      <Home />
-    </GlobalProvider>
+    <>
+      {visible ? (
+        <Loader />
+      ) : (
+        <GlobalProvider>
+          <Home />
+        </GlobalProvider>
+      )}
+    </>
   );
 };
 

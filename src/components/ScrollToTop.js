@@ -16,7 +16,6 @@ const ScrollToTop = ({ onCursor }) => {
       setVisible(false);
     }
   };
-  console.log(visible);
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
