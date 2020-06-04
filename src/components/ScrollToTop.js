@@ -31,7 +31,7 @@ const ScrollToTop = ({ onCursor }) => {
           onMouseLeave={onCursor}
         >
           <Link to="home" smooth={true} duration={1000}>
-            Top
+            <span>Top</span>
           </Link>
         </Circle>
       )}

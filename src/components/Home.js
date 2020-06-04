@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 //styled components
 import { createGlobalStyle, ThemeProvider } from "styled-components";
@@ -21,6 +21,7 @@ import {
 import Contact from "./HomePage/Contact";
 import Footer from "./Footer";
 import ScrollToTop from "./ScrollToTop";
+import Loader from "./Loader";
 
 export const GlobalStyle = createGlobalStyle`
   * {
@@ -46,6 +47,17 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 const Home = () => {
+  const [visible, setVisible] = useState(true);
+
+  const handleLoader = () => {
+    setTimeout(() => {
+      setVisible(!visible);
+    }, 2500);
+  };
+  useEffect(() => {
+    handleLoader();
+  }, []);
+
   const dispatch = useGlobalDispatchContext();
   const { cursorStyles, currentTheme } = useGlobalStateContext();
 
@@ -83,28 +95,32 @@ const Home = () => {
 
   return (
     <>
-      <ThemeProvider theme={currentTheme === "dark" ? DarkTheme : LightTheme}>
-        <GlobalStyle />
-        <CustomCursor toggleMenu={toggleMenu} />
-        <ScrollToTop onCursor={onCursor} />
-        <Header
-          onCursor={onCursor}
-          hamburgerPosition={hamburgerPosition}
-          setHamburgerPosition={setHamburgerPosition}
-          setToggleMenu={setToggleMenu}
-          toggleMenu={toggleMenu}
-        />
-        <NavigationList
-          onCursor={onCursor}
-          toggleMenu={toggleMenu}
-          setToggleMenu={setToggleMenu}
-        />
-        <Body onCursor={onCursor}></Body>
-        <Work onCursor={onCursor} />
-        <About onCursor={onCursor} />
-        <Contact onCursor={onCursor} />
-        <Footer />
-      </ThemeProvider>
+      {visible ? (
+        <Loader />
+      ) : (
+        <ThemeProvider theme={currentTheme === "dark" ? DarkTheme : LightTheme}>
+          <GlobalStyle />
+          <CustomCursor toggleMenu={toggleMenu} />
+          <ScrollToTop onCursor={onCursor} />
+          <Header
+            onCursor={onCursor}
+            hamburgerPosition={hamburgerPosition}
+            setHamburgerPosition={setHamburgerPosition}
+            setToggleMenu={setToggleMenu}
+            toggleMenu={toggleMenu}
+          />
+          <NavigationList
+            onCursor={onCursor}
+            toggleMenu={toggleMenu}
+            setToggleMenu={setToggleMenu}
+          />
+          <Body onCursor={onCursor}></Body>
+          <Work onCursor={onCursor} />
+          <About onCursor={onCursor} />
+          <Contact onCursor={onCursor} />
+          <Footer />
+        </ThemeProvider>
+      )}
     </>
   );
 };
