@@ -55,10 +55,11 @@ export const DesignContent = styled.div`
   flex-direction: column;
 `;
 export const Title = styled.span`
-  font-size: 4rem;
+  font-size: 4.5rem;
   font-family: "Poppins", sans-serif;
   font-weight: 700;
-  color: #969b9c;
+  padding-bottom: 1.2rem;
+  color: ${(props) => props.theme.text};
   @media (min-width: 1024px) {
     font-size: 10rem;
   }
@@ -67,6 +68,7 @@ export const Title = styled.span`
 export const DesignBodyContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr;
+  grid-row-gap: 5rem;
 
   @media (min-width: 1024px) {
     /* display: flex;
@@ -77,13 +79,7 @@ export const DesignBodyContainer = styled.div`
   }
 `;
 
-export const DesignBody = styled(animated.div)`
-  margin: 3rem 0;
-  @media (min-width: 1024px) {
-    margin: 0;
-  }
-`;
-export const Images = styled.div`
+export const Images = styled(motion.div)`
   width: 90%;
   margin: 0 0 0 auto;
   img {
@@ -94,7 +90,9 @@ export const Images = styled.div`
     margin: 0 auto;
   }
 `;
+
 export const Info = styled.div`
+  position: relative;
   z-index: 1;
   display: flex;
   flex-direction: column;
@@ -127,7 +125,7 @@ export const Info = styled.div`
 export const AppContent = styled.div`
   flex-grow: 1;
   box-sizing: border-box;
-  padding-top: 3rem;
+  padding-top: 10rem;
   display: flex;
   flex-direction: column;
   @media (min-width: 1024px) {

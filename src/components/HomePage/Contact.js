@@ -18,6 +18,7 @@ import {
   Facebook,
   Github,
   Twitter,
+  Linkdein,
 } from "../../assests/svg/social.icons";
 
 const Contact = ({ onCursor }) => {
@@ -82,6 +83,20 @@ const Contact = ({ onCursor }) => {
                 rel="noopener noreferrer"
               >
                 Twitter
+              </a>
+            </Details>
+            <Details>
+              <Icon>
+                <Linkdein />
+              </Icon>
+              <a
+                onMouseEnter={() => onCursor("pointer")}
+                onMouseLeave={onCursor}
+                href="https://www.linkedin.com/in/abhishek-kumar-1b8a13151/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Linkdein
               </a>
             </Details>
           </Info>

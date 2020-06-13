@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { useSpring } from "react-spring";
 import LazyLoad from "react-lazy-load";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -13,7 +12,6 @@ import {
   DesignContent,
   AppContent,
   Title,
-  DesignBody,
   Images,
   Info,
   AppBody,
@@ -81,18 +79,6 @@ const Links = [
 ];
 
 const Work = ({ onCursor }) => {
-  const calc = (x, y) => [
-    -(y - window.innerHeight / 2) / 20,
-    (x - window.innerWidth / 2) / 20,
-    1,
-  ];
-  const trans = (x, y, s) =>
-    `perspective(1500px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`;
-  const [props, set] = useSpring(() => ({
-    xys: [0, 0, 1],
-    config: { mass: 5, tension: 350, friction: 40 },
-  }));
-
   useEffect(() => {
     AOS.init();
   }, []);
@@ -104,40 +90,31 @@ const Work = ({ onCursor }) => {
           <ContentOne>work</ContentOne>
           <DesignContent>
             <Title>Design</Title>
-            <DesignBodyContainer
-              onMouseEnter={() => onCursor("pointer")}
-              onMouseLeave={onCursor}
-            >
+            <DesignBodyContainer>
               {Photos.map((photo) => (
-                <DesignBody
+                <Images
                   key={photo.id}
-                  onMouseMove={({ clientX: x, clientY: y }) =>
-                    set({ xys: calc(x, y) })
-                  }
-                  onMouseLeave={() => {
-                    set({ xys: [0, 0, 1] });
+                  onMouseEnter={() => onCursor("pointer")}
+                  onMouseLeave={onCursor}
+                  data-aos="fade-right"
+                  data-aos-once="true"
+                  whileHover={{
+                    scale: 1.1,
                   }}
-                  style={{ transform: props.xys.interpolate(trans) }}
                 >
-                  <LazyLoad debounce={false}>
-                    <Images
-                      data-aos="fade-right"
-                      data-aos-once="true"
-                      data-aos-offset="300"
-                    >
-                      <img src={photo.Photo} alt={photo.firstName} />
-                      <Info>
-                        <span className="title">
-                          {photo.firstName}
-                          <br />
-                          {photo.lastName}
-                        </span>
-                        <span className="bar"></span>
-                        <span className="number">{photo.id}</span>
-                      </Info>
-                    </Images>
+                  <LazyLoad>
+                    <img src={photo.Photo} alt={photo.firstName} />
                   </LazyLoad>
-                </DesignBody>
+                  <Info>
+                    <span className="title">
+                      {photo.firstName}
+                      <br />
+                      {photo.lastName}
+                    </span>
+                    <span className="bar"></span>
+                    <span className="number">{photo.id}</span>
+                  </Info>
+                </Images>
               ))}
             </DesignBodyContainer>
           </DesignContent>
@@ -150,7 +127,7 @@ const Work = ({ onCursor }) => {
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                 >
-                  <a target="_blank" rel="noopener noreferrer" href={Link.Path}>
+                  <a href={Link.Path} target="_blank" rel="noopener noreferrer">
                     <ButtonTitle>{Link.Note}</ButtonTitle>
                     <ButtonHeading>
                       {Link.Title}
